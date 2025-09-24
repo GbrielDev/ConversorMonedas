@@ -3,16 +3,16 @@ function convertCurrency() {
     const from = document.getElementById('fromCurrency').value;
     const to = document.getElementById('toCurrency').value;
 
-    if (isNaN(amount)) {
+    if (isNaN(amount) || amount <= 0) {
         document.getElementById('result').innerText = "Por favor ingresa una cantidad válida.";
         return;
     }
 
     const rates = {
-        USD: { USD: 1, EUR: 0.85, MXN: 17, DOP: 62.25 },
-        EUR: { USD: 1.18, EUR: 1, MXN: 20, DOP: 73.06 },
-        MXN: { USD: 0.059, EUR: 0.050, MXN: 1, DOP: 3.38 },
-        DOP: { USD: 1 / 62.25, EUR: 1 / 73.06, MXN: 1 / 3.38, DOP: 1 }
+        USD: { USD: 1, EUR: 0.92, MXN: 17.07, DOP: 58.75 },
+        EUR: { USD: 1.09, EUR: 1, MXN: 18.57, DOP: 63.93 },
+        MXN: { USD: 0.059, EUR: 0.054, MXN: 1, DOP: 3.44 },
+        DOP: { USD: 0.017, EUR: 0.016, MXN: 0.29, DOP: 1 }
     };
 
     const result = amount * rates[from][to];
